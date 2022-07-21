@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ItemMapper">
+	<select id="getList" resultType="org.zerock.domain.SellItemVO">
+		<![CDATA[
+			select * from tbl_board where bno > 0
+		]]>
+	</select>
+	
+	<select id="read" resultType="org.zerock.domain.SellItemVO">
+		select * from x_table where itemNum = #{itemNum}
+	</select>
+	
+	<select id="picture" resultType="org.zerock.domain.SellItemVO">
+		select * from x_imagename where itemNum = #{itemNum}
+	</select>
+	
+	<select id="readAllList" resultType="org.zerock.domain.SellItemVO">
+<!--		select * from x_imageName  -->
+		select * from x_table order by itemNum desc
+	</select>
+	
+</mapper>
