@@ -4,23 +4,32 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.ItemMapper">
-	<select id="getList" resultType="org.zerock.domain.SellItemVO">
+	<select id="getList" resultType="org.zerock.domain.GoodsVO">
 		<![CDATA[
-			select * from tbl_board where bno > 0
+			select * from goods where bno > 0
 		]]>
 	</select>
 	
-	<select id="read" resultType="org.zerock.domain.SellItemVO">
-		select * from x_table where itemNum = #{itemNum}
+	<select id="read" resultType="org.zerock.domain.GoodsVO">
+		select * from goods where itemNum = #{itemNum}
 	</select>
 	
-	<select id="picture" resultType="org.zerock.domain.SellItemVO">
-		select * from x_imagename where itemNum = #{itemNum}
-	</select>
-	
-	<select id="readAllList" resultType="org.zerock.domain.SellItemVO">
+	<select id="readAllList" resultType="org.zerock.domain.GoodsVO">
 <!--		select * from x_imageName  -->
-		select * from x_table order by itemNum desc
+		select * from goods order by itemNum desc
 	</select>
+	
+	<select id="readVegetableList" resultType="org.zerock.domain.GoodsVO">
+		select * from goods where catName = 'vegetable' order by itemNum desc
+	</select>
+	
+	<insert id="insertCart">
+		insert into cart (itemNum, )
+	</insert>
+	
+	<insert id="insert">
+	insert into tbl_board (bno, title, content, writer)
+	values (seq_board.nextval, #{title}, #{content}, #{writer})
+</insert>
 	
 </mapper>

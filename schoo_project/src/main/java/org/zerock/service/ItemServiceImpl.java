@@ -3,7 +3,7 @@ package org.zerock.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.zerock.domain.SellItemVO;
+import org.zerock.domain.GoodsVO;
 import org.zerock.mapper.ItemMapper;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ public class ItemServiceImpl implements ItemService{
 	private ItemMapper mapper;
 	
 	@Override
-	public SellItemVO get(String itemNum) {
+	public GoodsVO get(String itemNum) {
 		log.info("get...."+ itemNum);
 		
 		return mapper.read(itemNum);
@@ -31,7 +31,7 @@ public class ItemServiceImpl implements ItemService{
 	}*/
 
 	@Override
-	public List<SellItemVO> getAllList() {
+	public List<GoodsVO> getAllList() {
 		log.info("get All picture...");
 		return mapper.readAllList();
 	}

@@ -58,7 +58,6 @@
                 <li><a href="/item/vegiForm">채소</a></li>
                 <li><a href="/board/fruits">과일</a></li>
                 <li><a href="/board/meat">육류</a></li>
-                <li><a href="/board/fish">어류</a></li>
                 <li><a href="/board/liquor">주류</a></li>
             </ul>
         </nav>
@@ -127,11 +126,10 @@
                     
                         <ul>
                         
-                            <li><a href="/item_grid">채소</a></li>
-                            <li><a href="/item_grid">과일</a></li>
-                            <li><a href="/item_grid">육류</a></li>
-                            <li><a href="/item_grid">어류</a></li>
-                            <li><a href="/item_grid">주류</a></li>
+                            <li><a href="/main">HOME</a></li>
+                            <li><a href="/item_grid">판매상품</a></li>
+                            <li><a href="#">????</a></li>
+                            <li><a href="#">게시판</a></li>
                             
                         </ul>
                         

@@ -2,14 +2,16 @@ package org.zerock.mapper;
 
 import java.util.List;
 
-import org.zerock.domain.SellItemVO;
+import org.zerock.domain.GoodsVO;
 
 public interface ItemMapper {
 
-	public SellItemVO read(String itemNum);
+	public GoodsVO read(String itemNum);
 	
 //	public SellItemVo picture(String itemNum);
 	
-	public List<SellItemVO> readAllList();
+	public List<GoodsVO> readAllList();
+	
+	public GoodsVO insertCart(String itemNum);
 	
 }

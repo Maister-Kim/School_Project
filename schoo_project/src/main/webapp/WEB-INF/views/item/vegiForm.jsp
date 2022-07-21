@@ -66,11 +66,11 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2><c:out value="${vegi.catName}" /></h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <a href="./index.html">Vegetables</a>
-                            <span>Vegetable’s Package</span>
+                            <span><c:out value="${vegi.itemName}" /></span>
                         </div>
                     </div>
                 </div>
@@ -87,19 +87,19 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="../resources/img/product/<c:out value="${vegi.picName}"/>.jpg" alt="">
-<!--                                 src="/resources/img/product/details/product-details-1.jpg" alt=""> -->
+                                src="../resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg" alt="">
+                                <!-- src="/resources/img/product/details/product-details-1.jpg" alt=""> -->
                         </div>
-                        <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg"
-                                src="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg" alt="">
-                            <img data-imgbigurl="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg"
-                                src="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg" alt="">
-                            <img data-imgbigurl="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg"
-                                src="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg" alt="">
-                            <img data-imgbigurl="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg"
-                                src="/resources/img/product/<c:out value="${vegi.picName}"/>.jpg" alt="">
-                        </div>
+                        <%-- <div class="product__details__pic__slider owl-carousel">
+                            <img data-imgbigurl="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg"
+                                src="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg" alt="">
+                            <img data-imgbigurl="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg"
+                                src="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg" alt="">
+                            <img data-imgbigurl="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg"
+                                src="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg" alt="">
+                            <img data-imgbigurl="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg"
+                                src="/resources/img/main/<c:out value="${vegi.catName}"/>/<c:out value="${vegi.imageName}"/>.jpg" alt="">
+                        </div> --%>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -134,7 +134,7 @@
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
                             <li><b>Weight</b> <span>0.5 kg</span></li>
-                            <li><b>판매자</b> <span><c:out value="${vegi.seller }"></c:out> </span></li>
+                            <li><b>판매자</b> <span><c:out value="${vegi.seller }"/></span></li>
                             <li><b>Share on</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -166,7 +166,7 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
                                     <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
+                                    	<p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                         Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
                                         suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
                                         vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
@@ -188,7 +188,7 @@
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
+                                    <h6><c:out value="${vegi.itemIntro}"/></h6>
                                     <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                         Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
                                         Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam

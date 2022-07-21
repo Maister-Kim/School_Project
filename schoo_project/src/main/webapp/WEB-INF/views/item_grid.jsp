@@ -253,7 +253,7 @@
 		                        <div class="col-lg-4 col-md-6 col-sm-6">
 		                            <div class="product__item">
 		                            	<var id="path" ></var>
-	 	 		                          	<div class="product__item__pic set-bg" data-setbg="../resources/img/product/<c:out value="${list.picName}"/>.jpg">
+	 	 		                          	<div class="product__item__pic set-bg" data-setbg="../resources/img/main/<c:out value="${list.catName}"/>/<c:out value="${list.imageName}"/>.jpg">
 			                                    <ul class="product__item__pic__hover">
 			                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
 			                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>

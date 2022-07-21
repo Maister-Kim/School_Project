@@ -120,11 +120,11 @@
                             <h5><a href="#">육류</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+<!--                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/resources/img/categories/cat-4.jpg">
                             <h5><a href="#">어류</a></h5>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/resources/img/categories/cat-5.jpg">
                             <h5><a href="#">주류</a></h5>
