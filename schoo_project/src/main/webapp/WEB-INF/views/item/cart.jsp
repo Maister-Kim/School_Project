@@ -95,6 +95,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                        
+<%--            <c:forEach var="list" items="${goodsList }" >
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="../resources/img/product/<c:out value="${list.picName}"/>.jpg">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="/item/vegiForm?itemNum=<c:out value="${list.itemNum}"/>"><c:out value="${list.itemName}" /></a></h6>
+                            <h5><c:out value="${list.price}" /></h5>
+                        </div>
+                    </div>
+                </div>
+             </c:forEach> --%>
+             
+             			<c:forEach var="item" items="${cart}" >
                             <tr>
                                 <td class="shoping__cart__item">
                                     <img src="/resources/img/cart/cart-1.jpg" alt="">
@@ -117,7 +137,8 @@
                                     <span class="icon_close"></span>
                                 </td>
                             </tr>
-                            <tr>
+                        </c:forEach>
+                            <!-- <tr>
                                 <td class="shoping__cart__item">
                                     <img src="/resources/img/cart/cart-2.jpg" alt="">
                                     <h5>Fresh Garden Vegetable</h5>
@@ -160,7 +181,7 @@
                                 <td class="shoping__cart__item__close">
                                     <span class="icon_close"></span>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
