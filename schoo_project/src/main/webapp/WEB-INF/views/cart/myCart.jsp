@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-   
     
 <%@ include file = "../includes/header.jsp" %>
 
+<c:set var="myCartList"  value="${cartMap.myCartList}"  />
+<c:set var="myGoodsList"  value="${cartMap.myGoodsList}"  />
 
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
@@ -114,14 +115,14 @@
                 </div>
              </c:forEach> --%>
              
-             			<c:forEach var="item" items="${cart}" >
+             			<c:forEach var="item" items="${myGoodsList}" >
                             <tr>
                                 <td class="shoping__cart__item">
-                                    <img src="/resources/img/cart/cart-1.jpg" alt="">
-                                    <h5>Vegetable’s Package</h5>
+                                    <img src="/resources/img/main/<c:out value="${item.catName}"/>/<c:out value="${item.imageName}"/>.jpg" alt="">
+                                    <h5><c:out value="${item.itemName}" /></h5>
                                 </td>
                                 <td class="shoping__cart__price">
-                                    $55.00
+                                    <c:out value="${item.price}" />
                                 </td>
                                 <td class="shoping__cart__quantity">
                                     <div class="quantity">
@@ -131,7 +132,7 @@
                                     </div>
                                 </td>
                                 <td class="shoping__cart__total">
-                                    $110.00
+                                    <c:out value="${item.price}" />
                                 </td>
                                 <td class="shoping__cart__item__close">
                                     <span class="icon_close"></span>

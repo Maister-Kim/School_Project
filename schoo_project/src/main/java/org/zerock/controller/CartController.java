@@ -1,53 +1,50 @@
 package org.zerock.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.zerock.domain.CartVO;
+import org.zerock.mapper.CartMapper;
 import org.zerock.service.CartService;
-import org.zerock.service.ItemService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
+@RequestMapping("/cart")
 @Log4j
-@RequestMapping("/item/*")
 @AllArgsConstructor
-public class ItemController {
-
-	private ItemService service;
+public class CartController {
 
 	private CartService cartService;
-
-	@GetMapping("/vegiForm")
-	public String itemForm(@RequestParam("itemNum") String itemNum, Model model) {
-		log.info("itemNum: " + itemNum);
-
-		model.addAttribute("vegi", service.get(itemNum));
-		model.addAttribute("goodsList", service.getAllList());
-
-//		log.info(service.get(itemNum));
-
-		return "/item/vegiForm";
-	}
-
-/*	@GetMapping("/cart")
-	public String viewCart(@RequestParam("itemNum") String itemNum, Model model)
-	{
- 
+	
+	private CartMapper mapper;
+	
+	@GetMapping("/myCart")
+	public String CartList(Model model) {
+		Map<String, List> cartMap = cartService.getMyCartItem();
+		/*		List<CartVO> myCartList = mapper.getCart();*/
+		
+//		model.addAttribute("cart", cartService.getMyCartList());
+		
 		log.info("Shopping Cart");
-			
-		model.addAttribute("cart", cartService.getCartItem());
-		// 아이템 데이터도 전송
-			
-		return "/item/cart";
-	}*/
-
+		
+		model.addAttribute("cartMap", cartMap);
+		
+		return "/cart/myCart";
+	}
+	
 /*	@RequestMapping(value="/myCartList.do" ,method = RequestMethod.GET)
 	public ModelAndView myCartMain(HttpServletRequest request, HttpServletResponse response)  throws Exception {
 		String viewName=(String)request.getAttribute("viewName");
@@ -58,14 +55,6 @@ public class ItemController {
 		cartVO.setMember_id(member_id);
 		Map<String ,List> cartMap=cartService.myCartList(cartVO);
 		session.setAttribute("cartMap", cartMap);//��ٱ��� ��� ȭ�鿡�� ��ǰ �ֹ� �� ����ϱ� ���ؼ� ��ٱ��� ����� ���ǿ� �����Ѵ�.
-		//mav.addObject("cartMap", cartMap);
-		return mav;
-	}*/
+model.add */
+	
 }
-
-/*@GetMapping({"/get","/modify"})
-public void get(@RequestParam("bno") Long bno, 
-		@ModelAttribute("cri") Criteria cri, Model model) {
-	log.info("/get or modify");
-	model.addAttribute("board", service.get(bno));
-}*/
