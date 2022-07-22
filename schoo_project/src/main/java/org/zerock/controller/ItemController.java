@@ -1,5 +1,7 @@
 package org.zerock.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,8 +40,8 @@ public class ItemController {
 	@GetMapping("/cart")
 	public String viewCart(/*@RequestParam("itemNum") String itemNum, */Model model)
 	{
-
-			log.info("Shopping Cart");
+ 
+		log.info("Shopping Cart");
 			
 			model.addAttribute("cart", cartService.getCartItem());
 			
