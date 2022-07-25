@@ -29,7 +29,7 @@ public class ItemController {
 		log.info("itemNum: " + itemNum);
 
 		model.addAttribute("vegi", service.get(itemNum));
-		model.addAttribute("goodsList", service.getAllList());
+//		model.addAttribute("goodsList", service.getAllList());
 
 //		log.info(service.get(itemNum));
 

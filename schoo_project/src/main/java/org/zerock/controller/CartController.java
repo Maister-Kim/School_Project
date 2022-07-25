@@ -11,8 +11,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.zerock.domain.CartVO;
 import org.zerock.mapper.CartMapper;
@@ -29,8 +32,6 @@ public class CartController {
 
 	private CartService cartService;
 	
-	private CartMapper mapper;
-	
 	@GetMapping("/myCart")
 	public String CartList(Model model) {
 		Map<String, List> cartMap = cartService.getMyCartItem();
@@ -44,6 +45,41 @@ public class CartController {
 		
 		return "/cart/myCart";
 	}
+	
+	@PostMapping("/addGoods")
+	public @ResponseBody String addGoodsInCart(@RequestParam("itemNum") String itemNum, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CartVO cartVO = new CartVO();
+		cartVO.setItemNum(itemNum);
+		boolean isAreadyExisted=cartService.findCartGoods(cartVO);
+		System.out.println("isAreadyExisted:"+isAreadyExisted);
+		if(isAreadyExisted==true){
+			return "already_existed";
+		}else{
+			cartService.addGoodsInCart(cartVO);
+			return "add_success";
+		}
+	}
+	
+/*	@RequestMapping(value="/addGoodsInCart.do" ,method = RequestMethod.POST,produces = "application/text; charset=utf8")
+	public  @ResponseBody String addGoodsInCart(@RequestParam("goods_id") int goods_id,
+			                    HttpServletRequest request, HttpServletResponse response)  throws Exception{
+		HttpSession session=request.getSession();
+		memberVO=(MemberVO)session.getAttribute("memberInfo");
+		String member_id=memberVO.getMember_id();
+		
+		cartVO.setMember_id(member_id);
+		//īƮ ������� �̹� ��ϵ� ��ǰ���� �Ǻ��Ѵ�.
+		cartVO.setGoods_id(goods_id);
+		cartVO.setMember_id(member_id);
+		boolean isAreadyExisted=cartService.findCartGoods(cartVO);
+		System.out.println("isAreadyExisted:"+isAreadyExisted);
+		if(isAreadyExisted==true){
+			return "already_existed";
+		}else{
+			cartService.addGoodsInCart(cartVO);
+			return "add_success";
+		}
+	}*/
 	
 /*	@RequestMapping(value="/myCartList.do" ,method = RequestMethod.GET)
 	public ModelAndView myCartMain(HttpServletRequest request, HttpServletResponse response)  throws Exception {

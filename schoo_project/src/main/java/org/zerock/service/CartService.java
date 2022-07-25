@@ -13,4 +13,9 @@ public interface CartService {
 	public Map<String, List> getMyCartItem();
 
 	public List<GoodsVO> selectGoodsList(List<CartVO> cartList) throws DataAccessException;
+	
+	public void addGoodsInCart(CartVO cartVO) throws Exception;
+	
+	public boolean findCartGoods(CartVO cartVO) throws Exception;
+
 }

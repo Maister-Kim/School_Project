@@ -13,4 +13,9 @@ public interface CartMapper {
 	
 	public List<GoodsVO> selectGoodsList(List<CartVO> cartList);
 	
+	public CartVO insertGoodsInCart(CartVO cartVO);
+	
+	public int selectMaxCartNum();
+	
+	public String selectCountInCart(CartVO cartVO);
 }

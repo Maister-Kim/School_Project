@@ -145,7 +145,7 @@
                         <ul>
                         
                             <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
-                            <li><a href="/item/cart"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+                            <li><a href="/cart/myCart"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
                             
                         </ul>
                         

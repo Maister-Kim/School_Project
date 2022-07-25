@@ -128,7 +128,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/cart/myCart" class="primary-btn">ADD TO CARD</a>
+                        <a href="javascript:add_cart('${vegi.itemNum}')" class="primary-btn btn-add-cart">ADD TO CARD</a>
+<%--                         <li><a class="cart" href="javascript:add_cart('${goods.goods_id }')">장바구니</a></li> --%>
+<!--                         <a href="/cart/myCart" class="primary-btn btn-add-cart">ADD TO CARD</a> -->
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
@@ -329,5 +331,52 @@
         </div>
     </section>
     <!-- Related Product Section End -->
+
+<script type="text/javascript">
+/* 
+ $(function(){
+	$('.btn-add-cart').click(function(){
+ 		console.log('search!!');
+
+	});
+}); */
+
+function add_cart(itemNum) {
+	$.ajax({
+		type: "post",
+		async: false, //false인 경우 동기식으로 처리한다.
+		url: "/cart/addGoods",
+/* 		url: "${contextPath}/cart/addGoodsInCart.do", */
+		data: {
+			itemNum: itemNum
+		},
+		success: function (data, textStatus) {
+			//alert(data);
+			//	$('#message').append(data);
+			if (data.trim() == 'add_success') {
+				alert('등록 성공');
+				/* imagePopup('open', '.layer01'); */
+			} else if (data.trim() == 'already_existed') {
+				alert("이미 카트에 등록된 상품입니다.");
+			}
+		},
+		error: function (data, textStatus) {
+			alert("에러가 발생했습니다." + data);
+		},
+		complete: function (data, textStatus) {
+			//alert("작업을완료 했습니다");
+		}
+	}); //end ajax	
+}
+
+
+/* $(function(){
+	$('.btn-add-cart').on('click', function(){
+		console.log('search!!');
+	});
+}); */
+
+</script>
+
 
 <%@ include file = "../includes/footer.jsp" %>
